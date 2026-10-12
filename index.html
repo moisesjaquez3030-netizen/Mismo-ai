@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f6f6f4">
+<meta name="description" content="Mismo AI convierte imágenes en videos con movimiento generado por inteligencia artificial.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%2320211e%27/%3E%3Cpath d=%27M12 48V16L32 34 52 16V48%27 fill=%27none%27 stroke=%27white%27 stroke-width=%276%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+<title>Mismo AI — Da movimiento a tus ideas</title>
+<style>
+:root{--bg:#f6f6f4;--surface:#fff;--ink:#171815;--muted:#74756f;--line:#e4e4df;--soft:#efefeb;--dark:#20211e;--accent:#777b70;--radius:14px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-.01em}
+button,input,textarea,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #777;outline-offset:2px}
+a{color:inherit}.shell{max-width:1180px;margin:auto;padding:0 28px 48px}
+.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:18px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:18px;font-weight:750;letter-spacing:-.65px}.mark{width:32px;height:32px;display:grid;place-items:center;color:#fff;background:#20211e;border-radius:9px;flex:none}.brandname{display:flex;align-items:baseline;gap:5px}.brandname .ai{font-weight:450;color:#777970;letter-spacing:-.3px}
+.navright{display:flex;align-items:center;gap:12px}.quiet{border:0;background:transparent;color:#555;padding:9px 10px}.account{border:1px solid var(--line);background:white;border-radius:999px;padding:8px 13px;font-size:12px}
+.hero{padding:48px 0 32px;max-width:710px}.eyebrow{display:flex;align-items:center;gap:8px}.eyebrow:before{content:"";display:inline-block;width:18px;height:1px;background:#8a8c83}.eyebrow{text-transform:uppercase;font-size:10px;font-weight:750;letter-spacing:1.5px;color:#6f706b}.hero h1{font-size:clamp(32px,4.7vw,52px);line-height:1.06;letter-spacing:-2.6px;margin:12px 0 13px;font-weight:650}.hero p{margin:0;color:var(--muted);font-size:15px;max-width:560px}
+.workspace{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:16px;align-items:start}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}.cardhead{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:18px}.card h2{font-size:15px;letter-spacing:-.3px;margin:0;font-weight:700}.muted{color:var(--muted)}.small{font-size:12px}.step{font-size:11px;color:#888;border:1px solid var(--line);border-radius:999px;padding:4px 8px}
+.drop{height:260px;border:1px dashed #c9c9c2;border-radius:12px;background:#fafaf8;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;transition:background .15s,border-color .15s}.drop.drag{border-color:#222;background:#f0f0ed}.drop.has-image{border-style:solid;background:#f3f3f0}.drop img{width:100%;height:100%;object-fit:contain;display:block}.upload-content{padding:22px}.upload-symbol{width:42px;height:42px;border:1px solid #e3e3dc;background:white;border-radius:12px;display:grid;place-items:center;margin:0 auto 12px;font-size:20px}.upload-content b{font-size:13px}.upload-content p{font-size:12px;color:var(--muted);margin:5px 0 14px}
+.btn{border:1px solid var(--dark);background:var(--dark);color:white;padding:11px 15px;border-radius:9px;font-weight:650;font-size:12px;transition:opacity .15s,transform .15s}.btn:hover{opacity:.86}.btn:active{transform:translateY(1px)}.btn:disabled{opacity:.45;cursor:not-allowed}.btn.light{background:white;color:var(--ink);border-color:var(--line)}.btn.block{width:100%}.permissions{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.permission-state{font-size:11px;color:var(--muted);margin-top:6px}.history{margin-top:16px}.history-list{display:grid;gap:8px;margin-top:12px}.history-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:12px}.history-item a{font-weight:650;text-decoration:none}.history-item a:hover{text-decoration:underline}.fileline{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:9px;min-height:22px;font-size:11px;color:var(--muted)}
+label{display:block;font-size:12px;font-weight:650;margin:19px 0 7px}.input,textarea,select{width:100%;border:1px solid #deded8;background:white;border-radius:9px;padding:11px 12px;color:var(--ink);outline:none}.input:focus,textarea:focus,select:focus{border-color:#777}.input::placeholder,textarea::placeholder{color:#a2a29c}textarea{resize:vertical;min-height:102px}.quickprompts{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}.tag{border:1px solid var(--line);border-radius:999px;background:white;color:#565750;padding:6px 9px;font-size:11px}.tag:hover,.tag.active{border-color:#777;color:#111;background:#f3f3f0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.rangehead{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted)}input[type=range]{width:100%;accent-color:#222}.note{font-size:11px;color:var(--muted);margin:9px 0 0}
+.preview{height:360px;border-radius:12px;background:#f6f6f3;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}.preview video{width:100%;height:100%;object-fit:contain;background:#111}.empty{max-width:260px;text-align:center;padding:20px}.emptyicon{width:48px;height:48px;border:1px solid #e1e1db;background:white;border-radius:50%;display:grid;place-items:center;margin:0 auto 13px;font-size:18px}.empty b{font-size:13px}.empty p{font-size:12px;color:var(--muted);margin:6px 0 0}.statusrow{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;font-size:11px;color:var(--muted)}.statusleft{display:flex;align-items:center;gap:7px}.dot{width:6px;height:6px;background:#aaa;border-radius:50%}.dot.live{background:#2f8b61}.progress{height:3px;background:#e9e9e4;border-radius:10px;overflow:hidden;margin-top:9px}.bar{height:100%;width:0;background:#292929;transition:width .35s}.actions{display:flex;gap:8px;margin-top:13px}.actions .btn{flex:1}
+.quota{margin-top:14px;border:1px solid var(--line);border-radius:11px;padding:13px 14px}.quotatop{display:flex;justify-content:space-between;gap:10px;font-size:11px}.quotabar{height:4px;border-radius:10px;background:#eee;margin-top:9px;overflow:hidden}.quotafill{height:100%;background:#242424;width:0}
+.lower{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}.plan{display:flex;flex-direction:column}.plan h3{font-size:14px;margin:0 0 4px}.price{font-size:29px;letter-spacing:-1.3px;font-weight:650;margin:11px 0 1px}.price small{font-size:12px;color:var(--muted);font-weight:400;letter-spacing:0}.features{list-style:none;padding:0;margin:14px 0 18px;display:grid;gap:8px;font-size:12px;color:#555}.features li:before{content:"✓";color:#333;margin-right:8px}.plan .btn{margin-top:auto}.pro{border-color:#a8aaa1}.prolabel{font-size:10px;background:#292a26;color:white;border-radius:999px;padding:4px 7px;letter-spacing:.4px}
+footer{display:flex;justify-content:space-between;gap:15px;margin-top:28px;padding-top:16px;border-top:1px solid var(--line);font-size:11px;color:#85857f}
+.hidden{display:none!important}.modalback{position:fixed;inset:0;background:#0006;display:flex;align-items:center;justify-content:center;padding:18px;z-index:10}.modal{background:white;border-radius:16px;border:1px solid var(--line);width:min(420px,100%);padding:24px;box-shadow:0 20px 80px #0002}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}.modal h2{font-size:20px;letter-spacing:-.7px;margin:0}.close{border:0;background:transparent;font-size:22px;color:#777}.tabs{display:flex;background:#f1f1ed;padding:3px;border-radius:9px;margin:18px 0}.tab{flex:1;border:0;background:transparent;padding:8px;border-radius:7px;font-size:12px}.tab.active{background:white;box-shadow:0 1px 4px #0001}.modal label{margin-top:13px}.modal .btn{margin-top:17px}.modalmsg{font-size:12px;color:#a33;margin-top:10px;min-height:17px}.modalhint{font-size:11px;color:var(--muted);margin-top:12px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);padding:11px 15px;border-radius:9px;background:#1b1b1b;color:white;font-size:12px;z-index:20;box-shadow:0 8px 25px #0002}
+@media(max-width:950px){.lower{grid-template-columns:1fr 1fr}}@media(max-width:850px){.workspace{grid-template-columns:1fr}.lower{grid-template-columns:1fr}.shell{padding:0 15px 30px}.topbar{height:65px}.hero{padding:34px 0 25px}.card{padding:16px}.preview{height:300px}.navright .quiet{display:none}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="topbar">
+<a class="brand" href="#inicio" aria-label="Mismo AI, inicio"><span class="mark" aria-hidden="true"><svg width="22" height="20" viewBox="0 0 22 20" fill="none"><path d="M2 17V3L11 11L20 3V17" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="brandname"><span>Mismo</span><span class="ai">AI</span></span></a>
+<div class="navright"><button class="quiet" id="settingsLink">Ajustes</button><button class="quiet" id="pricingLink">Planes</button><button class="account" id="accountBtn">Iniciar sesión</button></div>
+</header>
+<section class="hero" id="inicio">
+<div class="eyebrow">CREACIÓN DE VIDEO CON IA</div>
+<h1>Una imagen. Una nueva historia.</h1>
+<p>Transforma una imagen en un video con movimiento generado por IA. Describe la escena y deja que Mismo haga el resto.</p>
+</section>
+<main class="workspace">
+<section class="card">
+<div class="cardhead"><div><h2>Crear video</h2><div class="small muted" style="margin-top:4px">Define el origen y el movimiento.</div></div><span class="step">01 / 02</span></div>
+<div class="drop" id="drop">
+<div class="upload-content" id="uploadContent"><div class="upload-symbol">↑</div><b>Arrastra una imagen o selecciónala</b><p>JPG, PNG o WEBP · Hasta 15 MB</p><button class="btn light" id="chooseBtn">Seleccionar imagen</button></div>
+<img id="imagePreview" class="hidden" alt="Imagen cargada">
+</div>
+<input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp" class="hidden">
+<div class="fileline"><span id="fileName">No hay imagen seleccionada</span><button class="tag hidden" id="removeImage">Quitar</button></div>
+<div class="permissions">
+<button class="tag" id="cameraBtn" type="button">Abrir cámara</button>
+<button class="tag" id="locationBtn" type="button">Añadir ubicación (opcional)</button>
+</div>
+<div class="permission-state" id="permissionState">Cámara y ubicación solo se solicitan si tú pulsas estos botones.</div><div class="permission-state" id="cameraStatus">Cámara apagada.</div><div class="permission-state" id="locationStatus">Ubicación no consultada.</div>
+<div id="cameraPanel" class="hidden" style="margin-top:10px">
+<video id="cameraVideo" autoplay playsinline style="width:100%;max-height:240px;background:#111;border-radius:10px"></video>
+<div class="actions"><button class="btn" id="captureBtn" type="button">Capturar imagen</button><button class="btn light" id="stopCameraBtn" type="button">Cerrar cámara</button></div>
+</div>
+<label for="prompt">Instrucciones de movimiento</label>
+<textarea id="prompt" placeholder="Ej.: La cámara se acerca lentamente mientras el cabello se mueve con el viento. Conserva el rostro y la composición originales."></textarea>
+<div class="quickprompts">
+<button class="tag" data-prompt="Acercamiento cinematográfico suave. El sujeto respira y se mueve de forma natural; conserva su identidad y la composición original.">Cinemático</button>
+<button class="tag" data-prompt="Paneo lento de izquierda a derecha, con profundidad de campo y movimiento ambiental sutil.">Paneo de cámara</button>
+<button class="tag" data-prompt="El sujeto camina hacia adelante con movimientos naturales. Mantén la anatomía y el rostro consistentes.">Movimiento natural</button>
+<button class="tag" data-prompt="La escena cobra vida con partículas sutiles y luz ambiental suave, manteniendo intactos los rasgos del sujeto.">Fantasía</button>
+</div>
+<div class="two">
+<div><label for="ratio">Formato</label><select id="ratio"><option value="16:9">Horizontal · 16:9</option><option value="9:16">Vertical · 9:16</option><option value="1:1">Cuadrado · 1:1</option></select></div>
+<div><label for="duration">Duración</label><select id="duration"><option value="4">4 segundos · Free</option><option value="5">5 segundos · Pro / Ultra</option><option value="6">6 segundos · Pro / Ultra</option><option value="7">7 segundos · Pro / Ultra</option><option value="8">8 segundos · Pro / Ultra</option><option value="9">9 segundos · Pro / Ultra</option><option value="10">10 segundos · Pro / Ultra</option><option value="11">11 segundos · Ultra</option><option value="12">12 segundos · Ultra</option><option value="13">13 segundos · Ultra</option><option value="14">14 segundos · Ultra</option><option value="15">15 segundos · Ultra</option></select></div>
+</div>
+<div class="two">
+<div><label for="camera">Cámara</label><select id="camera"><option value="auto">Automática</option><option value="zoom-in">Acercamiento</option><option value="zoom-out">Alejamiento</option><option value="pan">Paneo lateral</option><option value="orbit">Giro alrededor</option><option value="static">Fija</option></select></div>
+<div><label for="motion">Intensidad de movimiento</label><div class="rangehead"><span>Sutil</span><span id="motionValue">5 / 10</span><span>Dinámico</span></div><input id="motion" type="range" min="1" max="10" value="5"></div>
+</div>
+<button class="btn block" id="generate" style="margin-top:21px">Generar video <span aria-hidden="true">↗</span></button>
+<p class="note">El uso de generación está sujeto a los límites de tu plan.</p>
+</section>
+<section class="card">
+<div class="cardhead"><div><h2>Resultado</h2><div class="small muted" style="margin-top:4px">Vista previa de tu creación.</div></div><span class="step">02 / 02</span></div>
+<div class="preview" id="preview"><div class="empty" id="emptyState"><div class="emptyicon">▷</div><b>Tu video aparecerá aquí</b><p>Sube una imagen y describe el movimiento que deseas.</p></div><video id="videoResult" class="hidden" controls playsinline></video></div>
+<div class="statusrow"><div class="statusleft"><span class="dot" id="statusDot"></span><span id="statusText">Listo para crear</span></div><span id="statusRight">MP4 · IA</span></div>
+<div class="progress"><div class="bar" id="progressBar"></div></div>
+<div class="actions"><button class="btn light" id="download" disabled>Descargar video ↓</button><button class="btn light" id="copyPrompt">Copiar prompt</button></div>
+<div class="quota">
+<div class="quotatop"><span id="quotaLabel">Plan Free</span><b id="quotaCount">3 videos cada 24 h</b></div>
+<div class="quotabar"><div class="quotafill" id="quotaFill"></div></div>
+<div class="small muted" id="quotaHelp" style="margin-top:8px">Inicia sesión para consultar tu uso diario.</div>
+</div>
+<div class="quota history">
+  <div class="quotatop"><span>Tu biblioteca</span><b>Últimos videos</b></div>
+  <div class="small muted" style="margin-top:7px">Tus generaciones recientes guardadas en tu cuenta.</div>
+  <div id="historyList" class="history-list"><div class="small muted">Inicia sesión para ver tu biblioteca.</div></div>
+</div>
+</section>
+</main>
+<section id="pricing" class="lower">
+<div class="card plan">
+<div class="cardhead"><div><h2>Free</h2><div class="small muted">Para probar tus ideas.</div></div></div>
+<div class="price">$0 <small>/ para siempre</small></div>
+<ul class="features"><li>3 videos cada 24 horas</li><li>4 segundos por video</li><li>Calidad estándar · 720p</li><li>Biblioteca personal</li></ul>
+<button class="btn light" id="freeBtn">Usar Free</button>
+</div>
+<div class="card plan pro">
+<div class="cardhead"><div><h2>Pro</h2><div class="small muted">Para creadores constantes.</div></div><span class="prolabel">PRO</span></div>
+<div class="price">$12 <small>/ mes · USD</small></div>
+<ul class="features"><li>20 videos diarios</li><li>Hasta 10 segundos por video</li><li>Calidad 1080p HD</li><li>Biblioteca personal</li></ul>
+<button class="btn" id="proBtn">Elegir Pro · $12/mes</button>
+</div>
+<div class="card plan">
+<div class="cardhead"><div><h2>Ultra</h2><div class="small muted">Para equipos y empresas.</div></div><span class="prolabel">BUSINESS</span></div>
+<div class="price">$30 <small>/ mes · USD</small></div>
+<ul class="features"><li>Generaciones diarias ilimitadas*</li><li>Hasta 15 segundos por video</li><li>Calidad 1080p HD</li><li>Biblioteca personal y uso empresarial</li></ul>
+<button class="btn light" id="ultraBtn">Elegir Ultra · $30/mes</button>
+</div>
+</section>
+<p class="note" style="margin-top:10px">*Ultra no tiene un límite diario de generaciones dentro de la aplicación. Se aplican controles contra abuso y políticas de uso justo; el servicio depende de la disponibilidad y los costos del proveedor de IA.</p>
+<section id="settingsPanel" class="card" style="margin-top:16px">
+<div class="cardhead"><div><h2>Privacidad y almacenamiento</h2><div class="small muted" style="margin-top:4px">Permisos solicitados solo cuando los necesitas.</div></div><span class="step">AJUSTES</span></div>
+<div class="two">
+<div><div class="small muted">Estado de cámara</div><div class="small" id="cameraSettingsSummary">El navegador preguntará al abrir la cámara.</div></div>
+<div><div class="small muted">Estado de ubicación</div><div class="small" id="locationSettingsSummary">No solicitada.</div></div>
+<div><div class="small muted">Almacenamiento del navegador</div><div class="small" id="storageStatus">Consultando…</div></div>
+<div><div class="small muted">Biblioteca de videos</div><button class="tag" id="refreshHistory" type="button">Actualizar biblioteca</button></div>
+</div>
+<p class="note">La ubicación es opcional y no se guarda en el perfil. Las imágenes se envían al proveedor de generación para crear el video. Los videos recientes se muestran desde el historial de tu cuenta; el proveedor puede eliminar los archivos temporales según sus políticas.</p>
+</section>
+<footer><span class="brand" style="font-size:13px;gap:7px"><span class="mark" style="width:24px;height:24px;border-radius:7px"><svg width="16" height="15" viewBox="0 0 22 20" fill="none"><path d="M2 17V3L11 11L20 3V17" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="brandname"><span>Mismo</span><span class="ai">AI</span></span></span><span>Tu imaginación, en movimiento.</span><span><button class="quiet" id="footerLogin" style="padding:0">Cuenta</button> · © 2026</span></footer>
+</div>
+
+<div class="modalback hidden" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+<div class="modal">
+<div class="modalhead"><h2 id="authTitle">Tu espacio creativo</h2><button class="close" id="closeModal" aria-label="Cerrar">×</button></div>
+<p class="small muted">Inicia sesión o crea una cuenta para guardar tu uso diario.</p>
+<div class="tabs"><button class="tab active" id="loginTab">Iniciar sesión</button><button class="tab" id="registerTab">Crear cuenta</button></div>
+<form id="authForm">
+<label for="email">Correo electrónico</label><input class="input" id="email" type="email" autocomplete="email" required placeholder="tu@correo.com">
+<label for="password">Contraseña</label><input class="input" id="password" type="password" minlength="8" autocomplete="current-password" required placeholder="Mínimo 8 caracteres">
+<button class="btn block" id="authSubmit" type="submit">Iniciar sesión</button>
+</form>
+<div class="modalmsg" id="authMessage"></div><div class="modalhint">Tu cuenta y tus límites se gestionan de forma segura en el servidor.</div>
+</div></div>
+<div id="toast" class="toast hidden"></div>
+<script>
+const $=id=>document.getElementById(id);
+let imageFile=null, imageData=null, currentUser=null, authMode='login', videoUrl=null, toastTimer, locationContext='', cameraStream=null;
+const fileInput=$('fileInput'),drop=$('drop');
+function toast(msg){$('toast').textContent=msg;$('toast').classList.remove('hidden');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.add('hidden'),3000)}
+function showAuth(mode='login'){authMode=mode;$('authModal').classList.remove('hidden');$('authMessage').textContent='';$('loginTab').classList.toggle('active',mode==='login');$('registerTab').classList.toggle('active',mode==='register');$('authSubmit').textContent=mode==='login'?'Iniciar sesión':'Crear cuenta';$('password').autocomplete=mode==='login'?'current-password':'new-password'}
+function hideAuth(){$('authModal').classList.add('hidden')}
+$('accountBtn').onclick=()=>currentUser?logout():showAuth();
+$('footerLogin').onclick=()=>currentUser?logout():showAuth();
+$('closeModal').onclick=hideAuth;$('authModal').addEventListener('click',e=>{if(e.target===$('authModal'))hideAuth()});
+$('loginTab').onclick=()=>showAuth('login');$('registerTab').onclick=()=>showAuth('register');
+$('chooseBtn').onclick=()=>fileInput.click();drop.addEventListener('click',e=>{if(!imageFile&&e.target===drop)fileInput.click()});
+fileInput.addEventListener('change',e=>loadFile(e.target.files[0]));
+function loadFile(file){if(!file)return;if(!['image/jpeg','image/png','image/webp'].includes(file.type)){toast('Selecciona JPG, PNG o WEBP.');return}if(file.size>15*1024*1024){toast('La imagen no puede superar 15 MB.');return}imageFile=file;const r=new FileReader();r.onload=()=>{imageData=r.result;$('imagePreview').src=imageData;$('imagePreview').classList.remove('hidden');$('uploadContent').classList.add('hidden');drop.classList.add('has-image');$('fileName').textContent=file.name;$('removeImage').classList.remove('hidden')};r.readAsDataURL(file)}
+async function stopCamera(){if(cameraStream){cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null}$('cameraPanel').classList.add('hidden');$('cameraStatus').textContent='Cámara apagada.'}
+$('cameraBtn').onclick=async()=>{try{if(!navigator.mediaDevices?.getUserMedia)throw Error('Usa HTTPS o localhost para acceder a la cámara.');cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'},audio:false});$('cameraVideo').srcObject=cameraStream;$('cameraPanel').classList.remove('hidden');$('cameraStatus').textContent='Cámara activa; la imagen no se captura hasta que pulses Capturar.';$('cameraSettingsSummary').textContent='Permiso concedido para esta sesión.'}catch(e){$('cameraStatus').textContent=e.message;toast('No se pudo abrir la cámara.')}};
+$('stopCameraBtn').onclick=stopCamera;
+$('captureBtn').onclick=()=>{const v=$('cameraVideo');if(!v.videoWidth){toast('Espera a que la cámara esté lista.');return}const canvas=document.createElement('canvas');canvas.width=v.videoWidth;canvas.height=v.videoHeight;canvas.getContext('2d').drawImage(v,0,0);canvas.toBlob(blob=>{if(!blob)return;loadFile(new File([blob],'mismo-camera.jpg',{type:'image/jpeg'}));stopCamera()},'image/jpeg',.92)};
+$('locationBtn').onclick=()=>{if(!navigator.geolocation){$('locationStatus').textContent='No disponible en este navegador';return}$('locationStatus').textContent='Solicitando permiso…';navigator.geolocation.getCurrentPosition(pos=>{$('locationStatus').textContent='Permiso concedido; ubicación no guardada';$('locationSettingsSummary').textContent='Permiso concedido; no se guarda en el perfil.';locationContext=`contexto geográfico aproximado ${pos.coords.latitude.toFixed(2)}, ${pos.coords.longitude.toFixed(2)}; usar solo como inspiración ambiental, no mostrar coordenadas en el video.`;$('permissionState').textContent='Ubicación permitida para este prompt. No se guarda en tu perfil.'},err=>{$('locationStatus').textContent=err.code===1?'Permiso denegado':err.code===2?'Ubicación no disponible':'Tiempo de espera agotado';$('locationSettingsSummary').textContent=$('locationStatus').textContent},{enableHighAccuracy:false,timeout:10000,maximumAge:300000})};
+$('removeImage').onclick=()=>{imageFile=null;imageData=null;fileInput.value='';$('imagePreview').classList.add('hidden');$('uploadContent').classList.remove('hidden');drop.classList.remove('has-image');$('fileName').textContent='No hay imagen seleccionada';$('removeImage').classList.add('hidden')};
+['dragenter','dragover'].forEach(n=>drop.addEventListener(n,e=>{e.preventDefault();drop.classList.add('drag')}));
+['dragleave','drop'].forEach(n=>drop.addEventListener(n,e=>{e.preventDefault();drop.classList.remove('drag')}));
+drop.addEventListener('drop',e=>loadFile(e.dataTransfer.files[0]));
+$('motion').oninput=e=>$('motionValue').textContent=e.target.value+' / 10';
+document.querySelectorAll('[data-prompt]').forEach(b=>b.onclick=()=>{$('prompt').value=b.dataset.prompt;document.querySelectorAll('[data-prompt]').forEach(x=>x.classList.remove('active'));b.classList.add('active')});
+$('pricingLink').onclick=()=>$('pricing').scrollIntoView({behavior:'smooth'});
+$('freeBtn').onclick=()=>{if(!currentUser)showAuth('register');else toast('Tu cuenta está en el plan '+currentUser.plan+'.')};
+async function checkout(plan){if(!currentUser){showAuth('register');return}try{const d=await api('/api/create-checkout-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({plan})});location.href=d.url}catch(e){toast(e.message)}}
+$('proBtn').onclick=()=>checkout('Pro');
+$('ultraBtn').onclick=()=>checkout('Ultra');
+$('settingsLink').onclick=()=>$('settingsPanel').scrollIntoView({behavior:'smooth'});
+async function showStorage(){try{if(navigator.storage?.estimate){const e=await navigator.storage.estimate();$('storageStatus').textContent=e.usage!=null?`${(e.usage/1024/1024).toFixed(1)} MB usados en este navegador`:'Almacenamiento disponible'}else $('storageStatus').textContent='Estimación no compatible con este navegador'}catch(e){$('storageStatus').textContent='No disponible'}}
+showStorage();$('refreshHistory').onclick=loadHistory;
+function buildPrompt(){const cam=$('camera').selectedOptions[0].text;return `${$('prompt').value.trim()}${locationContext?'\\n\\nContexto opcional elegido por el usuario: '+locationContext:''}\\n\\nMovimiento de cámara: ${cam}. Intensidad: ${$('motion').value}/10. Conserva la identidad, los rasgos y la composición de la imagen original; movimiento coherente y anatomía consistente.`}
+$('copyPrompt').onclick=async()=>{try{await navigator.clipboard.writeText(buildPrompt());toast('Prompt copiado')}catch(e){toast('No se pudo copiar el prompt')}};
+async function api(url,options={}){const r=await fetch(url,{credentials:'same-origin',...options});const d=await r.json().catch(()=>({error:'Respuesta no válida del servidor'}));if(!r.ok)throw Error(d.error||'Ocurrió un error');return d}
+async function loadHistory(){try{if(!currentUser){$('historyList').textContent='Inicia sesión para ver tus videos guardados.';return}const d=await api('/api/history');if(!d.items.length){$('historyList').textContent='Todavía no has generado videos.';return}$('historyList').innerHTML=d.items.map(v=>`<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)"><div><b>${v.duration_seconds||'—'} s · ${v.resolution||'Video'}</b><div style="color:#777;font-size:11px">${new Date(v.created_at).toLocaleString()}</div></div><a href="${v.video_url}" target="_blank" rel="noopener" class="tag">Abrir video ↗</a></div>`).join('')}catch(e){$('historyList').textContent=e.message}}
+async function refreshMe(){try{const d=await api('/api/me');currentUser=d.user;$('accountBtn').textContent=currentUser?currentUser.email.split('@')[0]+' · Salir':'Iniciar sesión';$('quotaLabel').textContent=currentUser?'Plan '+currentUser.plan:'Plan Free';$('quotaCount').textContent=currentUser?(currentUser.plan==='Ultra'?`${currentUser.used} videos usados · ilimitado`: `${currentUser.used}/${currentUser.limit} videos usados hoy`):'3 videos cada 24 h';$('quotaHelp').textContent=currentUser?`Se renueva en ${d.resetInHours} h aproximadamente.`:'Inicia sesión para guardar y consultar tu límite diario.';$('quotaFill').style.width=currentUser?(currentUser.plan==='Ultra'?'0%':Math.min(100,currentUser.used/currentUser.limit*100)+'%'):'0%';const plan=currentUser?.plan||'Free';[...$('duration').options].forEach(o=>{const n=Number(o.value);o.disabled=plan==='Free'?n!==4:plan==='Pro'?n>10:n>15});if(plan==='Free')$('duration').value='4';else if(plan==='Pro'&&Number($('duration').value)>10)$('duration').value='10';else if(plan==='Ultra'&&Number($('duration').value)>15)$('duration').value='15';$('quotaCount').textContent=currentUser?(plan==='Ultra'?`${currentUser.used} videos usados · ilimitado`: `${currentUser.used}/${currentUser.limit} videos usados`):'3 videos cada 24 h';$('quotaLabel').textContent='Plan '+plan;await loadHistory()}catch(e){$('quotaHelp').textContent='No se pudo consultar la cuenta.'}}
+$('authForm').onsubmit=async e=>{e.preventDefault();$('authSubmit').disabled=true;$('authMessage').textContent='';try{const d=await api(authMode==='login'?'/api/auth/login':'/api/auth/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:$('email').value,password:$('password').value})});currentUser=d.user;hideAuth();toast(authMode==='login'?'Sesión iniciada':'Cuenta creada');await refreshMe();await loadHistory()}catch(err){$('authMessage').textContent=err.message}finally{$('authSubmit').disabled=false}};
+async function logout(){try{await api('/api/auth/logout',{method:'POST'});currentUser=null;await refreshMe();await loadHistory();toast('Sesión cerrada')}catch(e){toast(e.message)}}
+$('generate').onclick=async()=>{
+ if(!imageFile){toast('Primero selecciona una imagen.');return}
+ if(!$('prompt').value.trim()){toast('Describe el movimiento que deseas.');$('prompt').focus();return}
+ if(!currentUser){showAuth('login');$('authMessage').textContent='Inicia sesión para generar tu video.';return}
+ $('generate').disabled=true;$('generate').textContent='Generando…';$('statusText').textContent='Enviando al motor de IA';$('statusDot').classList.add('live');$('progressBar').style.width='15%';
+ try{
+ const form=new FormData();form.append('image',imageFile);form.append('prompt',buildPrompt());form.append('aspect_ratio',$('ratio').value);form.append('duration_seconds',$('duration').value);form.append('camera_motion',$('camera').value);form.append('motion_strength',$('motion').value);
+ const d=await api('/api/generate',{method:'POST',body:form});$('progressBar').style.width='100%';$('videoResult').src=d.video_url;$('videoResult').classList.remove('hidden');$('emptyState').classList.add('hidden');$('download').disabled=false;$('download').onclick=()=>{const a=document.createElement('a');a.href=d.video_url;a.download='mismo-ai-video.mp4';a.target='_blank';a.click()};$('statusText').textContent='Video listo';$('statusDot').classList.add('live');$('statusRight').textContent=(d.resolution||'MP4')+' · IA';toast('Video generado');await refreshMe();await loadHistory()
+ }catch(err){$('statusText').textContent='No se pudo completar';$('progressBar').style.width='0%';toast(err.message);await refreshMe()}
+ finally{$('generate').disabled=false;$('generate').innerHTML='Generar video <span aria-hidden="true">↗</span>'}
+};
+refreshMe().then(()=>loadHistory());
+</script>
+</body></html>
